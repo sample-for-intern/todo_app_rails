@@ -202,6 +202,252 @@ my_book.display_info #=> Ruby入門 by 山田太郎
 ```
 
 ---
+#### 問題6: 配列の変換 (map)
+
+`[1, 2, 3, 4, 5]` という配列があります。`map`メソッドを使って、各要素を2倍にした新しい配列 `[2, 4, 6, 8, 10]` を作成し、表示してください。
+
+```ruby
+numbers = [1, 2, 3, 4, 5]
+# ここにコードを記述
+```
+
+#### 問題7: ハッシュの配列の処理
+
+ユーザー情報のハッシュが格納された配列があります。この配列から、全員の名前だけを取り出した新しい配列 `["Alice", "Bob", "Carol"]` を作成し、表示してください。
+
+```ruby
+users = [
+  { name: "Alice", age: 20 },
+  { name: "Bob", age: 25 },
+  { name: "Carol", age: 30 }
+]
+# ここにコードを記述
+```
+
+#### 問題8: 繰り返しと条件分岐 (FizzBuzz簡易版)
+
+1から30までの数値を順に処理し、その数値が3の倍数のときだけ "Fizz" と表示するコードを書いてください。（例: 3, 6, 9... のときに "Fizz" と表示される）
+
+```ruby
+# ここにコードを記述
+```
+
+#### 問題9: メソッドの応用
+
+文字列を引数として受け取り、その文字数を返す `char_count` というメソッドを定義してください。そのメソッドを使って `"Hello"` という文字列の文字数を表示してください。
+
+```ruby
+# ここにメソッドを定義
+
+# メソッドを呼び出して結果を表示
+```
+
+#### 問題10: クラスの継承
+
+動物を表す `Animal` クラスを定義します。このクラスは「(名前) is speaking.」と表示する `speak` メソッドを持ちます。
+次に、`Animal` クラスを継承した `Dog` クラスを作成し、`speak` メソッドをオーバーライド（上書き）して「(名前) says Woof!」と表示されるようにしてください。
+
+```ruby
+class Animal
+  def initialize(name)
+    @name = name
+  end
+
+  def speak
+    puts "#{@name} is speaking."
+  end
+end
+
+# ここにDogクラスを定義
+
+# Dogオブジェクトを作成し、メソッドを呼び出す
+my_dog = Dog.new("Buddy")
+my_dog.speak #=> Buddy says Woof!
+```
+
+---
+
+### 8.1. 問題解答と解説
+
+#### 問題1: 変数とデータ型
+
+**解答:** `15`
+
+**解説:**
+`x`は整数`10`、`y`は文字列`"5"`です。Rubyでは異なるデータ型を直接足し算することはできません。`y.to_i`とすることで、文字列`"5"`が整数`5`に変換されます。結果として`10 + 5`が計算され、`15`が出力されます。
+
+#### 問題2: 条件分岐
+
+**解答例:**
+
+```ruby
+score = 75
+
+if score >= 80
+  puts "合格です！"
+elsif score >= 60 # 60点以上80点未満
+  puts "もう少し頑張りましょう"
+else # 60点未満
+  puts "不合格です"
+end
+```
+
+**解説:**
+`if`、`elsif`、`else`を使って条件を上から順に評価します。`elsif`を使うことで、前の条件が偽だった場合にのみ次の条件が評価されます。
+
+#### 問題3: 繰り返し
+
+**解答例:**
+
+```ruby
+(1..10).each do |num|
+  if num.even? # numが偶数なら
+    puts num
+  end
+end
+
+# または
+1.upto(10) do |num|
+  puts num if num.even?
+end
+```
+
+**解説:**
+`each`メソッドを使って1から10までの数値を順に処理します。`num.even?`は、数値が偶数である場合に`true`を返します。
+
+#### 問題4: メソッドの定義
+
+**解答例:**
+
+```ruby
+def add(a, b)
+  return a + b
+end
+
+# または、Rubyでは最後の式の評価結果が自動的に返されるため、returnは省略可能
+# def add(a, b)
+#   a + b
+# end
+
+puts add(5, 3) #=> 8
+```
+
+**解説:**
+`def`キーワードでメソッドを定義し、引数`a`と`b`を受け取ります。`return`キーワードで計算結果を返します。`puts`でメソッドの戻り値を表示します。
+
+#### 問題5: クラスとオブジェクト
+
+**解答例:**
+
+```ruby
+class Book
+  def initialize(title, author)
+    @title = title
+    @author = author
+  end
+
+  def display_info
+    puts "#{@title} by #{@author}"
+  end
+end
+
+my_book = Book.new("Ruby入門", "山田太郎")
+my_book.display_info
+```
+
+**解説:**
+`class`キーワードでクラスを定義します。`initialize`メソッドは、`Book.new`でオブジェクトが作成されるときに自動的に呼び出され、インスタンス変数（`@title`, `@author`）を初期化します。`display_info`メソッドは、これらのインスタンス変数を使って情報を表示します。
+
+---
+#### 問題6: 配列の変換 (map)
+
+**解答例:**
+```ruby
+numbers = [1, 2, 3, 4, 5]
+doubled_numbers = numbers.map do |n|
+  n * 2
+end
+p doubled_numbers # pメソッドは配列を分かりやすく表示してくれます
+
+# 1行で書く場合
+# p numbers.map { |n| n * 2 }
+```
+**解説:**
+`map`メソッドは、配列の各要素に対してブロック内の処理を行い、その結果を新しい配列として返します。元の配列 `numbers` は変更されません。
+
+#### 問題7: ハッシュの配列の処理
+
+**解答例:**
+```ruby
+users = [
+  { name: "Alice", age: 20 },
+  { name: "Bob", age: 25 },
+  { name: "Carol", age: 30 }
+]
+names = users.map do |user|
+  user[:name]
+end
+p names #=> ["Alice", "Bob", "Carol"]
+```
+**解説:**
+`map`メソッドで配列 `users` の要素（ハッシュ）を一つずつ取り出します。ブロック内では、各ハッシュからシンボル `:name` をキーとして値を取得し、その結果が新しい配列 `names` の要素となります。
+
+#### 問題8: 繰り返しと条件分岐 (FizzBuzz簡易版)
+
+**解答例:**
+```ruby
+(1..30).each do |num|
+  if num % 3 == 0
+    puts "Fizz"
+  end
+end
+```
+**解説:**
+`(1..30)` は1から30までの範囲を表すオブジェクトです。`each`で数値を一つずつ取り出し、`%`（剰余）演算子を使って3で割り切れるかどうかを判定しています。
+
+#### 問題9: メソッドの応用
+
+**解答例:**
+```ruby
+def char_count(str)
+  str.length
+end
+
+puts char_count("Hello") #=> 5
+```
+**解説:**
+文字列オブジェクトは、その長さを返す `length` メソッドを持っています。`char_count` メソッド内で引数 `str` の `length` を呼び出し、その戻り値を `puts` で表示しています。
+
+#### 問題10: クラスの継承
+
+**解答例:**
+```ruby
+class Animal
+  def initialize(name)
+    @name = name
+  end
+
+  def speak
+    puts "#{@name} is speaking."
+  end
+end
+
+class Dog < Animal # `< Animal` で継承
+  def speak # メソッドのオーバーライド
+    puts "#{@name} says Woof!"
+  end
+end
+
+my_dog = Dog.new("Buddy")
+my_dog.speak
+```
+**解説:**
+`class Dog < Animal` と記述することで、`Dog` クラスは `Animal` クラスの機能（この場合は `initialize` メソッド）を引き継ぎます。`Dog` クラス内で `speak` メソッドを再定義することで、親クラスの同名メソッドの挙動を上書き（オーバーライド）しています。
+
+---
+
+このドキュメントが、あなたのRuby学習の第一歩となれば幸いです。
+
 
 このドキュメントが、あなたのRuby学習の第一歩となれば幸いです。
 
