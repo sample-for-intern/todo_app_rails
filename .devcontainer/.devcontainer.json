@@ -1,6 +1,13 @@
 {
   "name": "Rails App",
   "image": "mcr.microsoft.com/devcontainers/ruby:3-bullseye",
+  "features": {
+    "ghcr.io/devcontainers/features/node:1": {
+      "version": "18"
+    },
+    "ghcr.io/devcontainers/features/sqlite:1": {}
+  },
+  "postCreateCommand": "rbenv install 3.2.6 || true && rbenv local 3.2.6 && bundle install && rails db:prepare",
   "customizations": {
     "vscode": {
       "extensions": [
@@ -8,10 +15,6 @@
         "rebornix.Ruby"
       ]
     }
-<<<<<<< HEAD:.devcontainer/devcontainer.json
   },
   "forwardPorts": [3000]
 }
-=======
-    
->>>>>>> 8b44a17284afdb67dde20cfa6f100d2078272a00:.devcontainer/.devcontainer.json
