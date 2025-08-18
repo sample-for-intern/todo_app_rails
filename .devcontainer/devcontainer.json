@@ -1,27 +1,13 @@
 {
-      "name": "Rails App",
-      "image": "mcr.microsoft.com/devcontainers/ruby:3-bullseye",
-      "features": {
-        "ghcr.io/devcontainers/features/node:1": {
-          "version": "18"
-        },
-        "ghcr.io/devcontainers/features/sqlite:1": {}
-      },
-      "postCreateCommand": "bundle install && yarn install && rails db:prepare",
-      "customizations": {
-        "vscode": {
-          "extensions": [
-            "Shopify.ruby-lsp",
-            "rebornix.Ruby"
-          ]
-        }
-      },
-      "forwardPorts": [3000],
-      "portsAttributes": {
-        "3000": {
-          "label": "Application",
-          "onAutoForward": "openPreview"
-        }
-      }
+  "name": "Rails App",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3-bullseye",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "Shopify.ruby-lsp",
+        "rebornix.Ruby"
+      ]
     }
-    
+  },
+  "forwardPorts": [3000]
+}
