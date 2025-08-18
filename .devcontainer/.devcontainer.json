@@ -2,10 +2,10 @@
   "name": "Rails App",
   "image": "mcr.microsoft.com/devcontainers/ruby:3-bullseye",
   "features": {
-    "ghcr.co/devcontainers/features/node:1": {
+    "ghcr.io/devcontainers/features/node:1": {
       "version": "18"
     },
-    "ghcr.co/devcontainers/features/sqlite:1": {}
+    "ghcr.io/devcontainers/features/sqlite:1": {}
   },
   "postCreateCommand": "rbenv install 3.2.6 || true && rbenv local 3.2.6 && bundle install && rails db:prepare",
   "customizations": {
