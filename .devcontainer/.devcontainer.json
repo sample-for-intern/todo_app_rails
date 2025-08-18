@@ -1,5 +1,5 @@
 {
-  "name": "Rails App",
+  "name": "Test App - Please Read This!",
   "image": "mcr.microsoft.com/devcontainers/ruby:3-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
