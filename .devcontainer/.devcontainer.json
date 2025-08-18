@@ -8,6 +8,10 @@
         "rebornix.Ruby"
       ]
     }
+<<<<<<< HEAD:.devcontainer/devcontainer.json
   },
   "forwardPorts": [3000]
 }
+=======
+    
+>>>>>>> 8b44a17284afdb67dde20cfa6f100d2078272a00:.devcontainer/.devcontainer.json
