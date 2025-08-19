@@ -1,6 +1,6 @@
 {
   "name": "Rails TODO App",
-  "image": "mcr.microsoft.com/devcontainers/ruby:3-bullseye",
+  "image": "mcr.microsoft.com/devcontainers/ruby:3.2-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
       "version": "22"
