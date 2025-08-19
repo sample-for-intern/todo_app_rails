@@ -1,5 +1,5 @@
 {
-  "name": "Rails TODO App",
+  "name": "Rails TODO App (Robust Setup)",
   "image": "mcr.microsoft.com/devcontainers/ruby:3.2-bullseye",
   "features": {
     "ghcr.io/devcontainers/features/node:1": {
@@ -7,7 +7,10 @@
     },
     "ghcr.io/devcontainers/features/sqlite:1": {}
   },
-  "postCreateCommand": "chmod +x bin/setup && bin/setup --skip-server",
+  "remoteEnv": {
+    "PATH": "${containerWorkspaceFolder}/node_modules/.bin:${containerEnv:PATH}"
+  },
+  "postCreateCommand": "chmod +x bin/setup && echo 'eval \"$(rbenv init -)\"'>> ~/.bashrc && bin/setup --skip-server",
   "customizations": {
     "vscode": {
       "extensions": [
