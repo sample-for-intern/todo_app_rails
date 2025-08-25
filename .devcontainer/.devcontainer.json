@@ -10,7 +10,7 @@
   "remoteEnv": {
     "PATH": "${containerWorkspaceFolder}/node_modules/.bin:${containerEnv:PATH}"
   },
-  "postCreateCommand": "chmod +x bin/setup && echo 'eval \"$(rbenv init -)\"'>> ~/.bashrc && bin/setup --skip-server",
+  "postCreateCommand": "rbenv install 3.2.6 -s && rbenv global 3.2.6 && echo 'eval \"$(rbenv init -)\"' >> ~/.bashrc && chmod +x bin/setup && bin/setup --skip-server",
   "customizations": {
     "vscode": {
       "extensions": [
